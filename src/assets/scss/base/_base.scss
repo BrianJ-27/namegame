@@ -1,0 +1,61 @@
+// **************************************
+// BASE STYLES
+// **************************************
+
+@use '../utilities/fonts' as f;
+@use '../utilities/colors' as c;
+@use '../utilities/placeholders' as *;
+
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	// background: #000 !important;
+	// color: #0f0 !important;
+	// outline: solid #f00 1px !important;
+}
+html,
+body,
+#root {
+	height: 100%;
+}
+
+body {
+	font-family: f.$font-stack-main;
+	line-height: 1;
+	font-size: 20px;
+	background-color: c.$white;
+}
+
+header {
+ 	background-color: c.$color-header-main;
+}
+
+nav {
+	background-color: c.$color-navbar-main;
+}
+
+p {
+  @extend %text-modules;
+  margin-bottom: 24px;
+}
+
+a {
+	@extend %nav-link;
+}
+
+img {
+	@extend %ctr-img;
+}
+
+button {
+	@extend %btn-properties;
+	&:nth-of-type(1) {
+		margin-bottom: 8px;
+	}
+	padding: 1.032rem;
+}
+
+
+

@@ -1,0 +1,68 @@
+// **************************************
+// MIXINS
+// **************************************
+
+/*
+Important reminders: 
+1) using the "Null" keyword allows us to pass optional parameters to our mixins without bloating our code
+2) using the "Null" keyword also means we don't have to worry about the order of our parameters. 
+3) mixins work best 
+*/
+
+@use './variables' as * ;
+
+// Make a circled element
+@mixin roundy(
+  $dim:null,
+  $border:null) 
+{
+  height:$dim;
+  width: $dim;
+  border: $border;
+  border-radius: 50%;
+}
+
+@mixin text-prop(
+  $size,
+  $l-height:null,
+  $f-weight:null,
+  $color:null)
+  {
+    font-size: $size;
+    line-height: $l-height;
+    font-weight: $f-weight;
+    color: $color;
+}
+
+ //Create a flex container
+ @mixin flex_me(
+   $dir: null,
+   $wrap: null,
+   $just: null,
+   $vertAlign: null,
+   $horznAlign: null,)
+   {
+     display: flex;
+     flex-wrap: $wrap;
+     flex-direction: $dir;
+     justify-content: $just;
+     align-items: $vertAlign;
+     align-self: $horznAlign;
+   }
+
+// Media Query
+@mixin mq($break){
+  $value: map-get($breakpoints, $break);
+  $sm: map-get($breakpoints, 'sm');
+
+  @if $value < $sm {
+    @media (max-width: $value){
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $value){
+      @content;
+   }
+  }
+}

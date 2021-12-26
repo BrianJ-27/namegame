@@ -1,0 +1,36 @@
+// **************************************
+// Placeholders
+// **************************************
+
+@use './colors' as c;
+@use './variables' as v;
+
+%nav-link {
+	text-decoration: none;
+	color: c.$color-main;
+}
+
+%ctr-img {
+	display: block;
+	margin: auto;
+}
+
+%text-modules {
+	letter-spacing: 1px;
+	word-spacing: 0.5px;
+	line-height: 1.2;
+	text-align: center;
+	color: c.$white;
+}
+
+%btn-properties {
+	outline: none;
+	border: none;
+	border-radius: v.$moderate-curve;
+	letter-spacing: 1.1px;
+	font-weight: 500;
+	padding: .8rem;
+	background-color: c.$button-default;
+	color: c.$white;
+	cursor: pointer;
+}

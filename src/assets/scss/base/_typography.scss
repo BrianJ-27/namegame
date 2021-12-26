@@ -1,0 +1,43 @@
+// **************************************
+// TYPOGRAPHY STYLES
+// **************************************
+
+@use '../utilities' as *;
+
+//h1 styles
+.title__primary {
+  @include text-prop($size: 1.28em, $f-weight: 400, $color: $color-text-base);
+  @extend %text-modules;
+  @include mq("md") {
+    @include text-prop($size: 1.8em, $f-weight: 500);
+  }
+  @include mq("lg") {
+    @include text-prop($size: 1.1em);
+  }
+}
+
+//h2 styles
+.title__secondary {
+  @include text-prop($size: 1.5em, $f-weight: 500, $color: $color-text-dark);
+  @extend %text-modules;
+  @include mq("md") {
+    @include text-prop($size: 1.3em, $l-height: 1.5);
+  }
+  @include mq("lg") {
+    @include text-prop($size: 1.6em);
+  }
+}
+
+//h3 Styles
+
+.title__tertiary {
+  @include text-prop($size: 1.4em, $color: $color-accent);
+}
+
+/*----CONTEXT STYLES----*/
+
+.content {
+
+}
+
+

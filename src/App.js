@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import PortraitMenuScreen from '../src/pages/menu-screen/PortraitMenuScreen'
+import LandscapeMenuScreen from './pages/menu-screen/LandscapeMenuScreen'
+import { useMediaQuery } from 'react-responsive'
 
 function App() {
+
+  const isMobile = useMediaQuery(
+    { query: '(max-width: 411px)' },
+    )
+
+  const isTabletorDesktop = useMediaQuery(
+    { query: '(min-width: 767px'}
+    )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {isMobile && <PortraitMenuScreen/>}
+    {isTabletorDesktop && <LandscapeMenuScreen/>}
+    </>
   );
 }
 

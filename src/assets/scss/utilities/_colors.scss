@@ -1,0 +1,81 @@
+// **************************************
+// GLOBAL COLOR VARIABLES
+// **************************************
+/*-----Descriptive Color Variables-----*/
+$white: #fff;
+$black: #000;
+$serene-midnight: #0d0d0d;
+$smoke-fog: #282c34;
+$relaxed-silver: #b8bcbf;
+$grey: #878787;
+$tire-wheel: #2f2f2f;
+$silver-surfer: #dbdbdb;
+$deep-koamaru: #111e6c;
+$killer-blue: #030583;
+$calm-blue: #024873;
+$sophisticated-teal: #025e73;
+$sunflower: #ffbf00;
+$bright-sky: #9de5ff;
+$the-hulk: #3b7a57;
+$algae-green: #93dfb8;
+$amethyst-smoke: #a397b4;
+$barney: #714693;
+$bone: #d4c4a8;
+$almond: #eed9c4;
+$grey-poupon: #af8f2c;
+$apple-blossom: #af4d43;
+$apricot: #eb9373;
+$burnt-orange: #da6304;
+$bean: #3d0c02;
+$bubblegum: #eec1be;
+$namegame-primary: #2B4C68;
+$namegame-accent: #15659D;
+
+
+/*-----Project Color Variables-----*/
+$namegame-primary: #2B4C68;
+$namegame-accent: #15659D;
+$namegame-bg-color: #E5E5E5;
+$black: #000000;
+
+/*-----Functional Color Variables-----*/
+$color-main: $namegame-primary;
+$color-main-transparent: rgba($color-main, 0.5);
+$color-main-light: lighten($color-main, 3%);
+$color-main-lightest: lighten($color-main, 50%);
+$color-main-dark: darken($color-main, 15%);
+$color-main-darkest: darken($color-main, 25%);
+$color-accent: $namegame-accent;
+
+//background colors
+$color-bg: $namegame-bg-color;
+$color-bg-dark: darken($color-bg, 20%);
+$color-bg-darkest: darken($color-bg, 40%);
+$color-bg-light: lighten($color-bg, 10%);
+$color-shadow: rgba($color-bg, 0.5);
+
+
+//Link colors
+$color-link-default: $namegame-accent;
+$color-link-visited: $namegame-accent;
+$color-link-focus: $namegame-accent;
+$color-link-hover: darken($color-accent, 5%);
+$color-link-active: lighten($color-accent, 5%);
+
+
+//Border Colors
+$color-border-light: $color-accent;
+$color-border-dark: $color-main;
+
+//Headings & Paragraph Colors
+$color-text-light: $white;
+$color-text-base: $grey;
+$color-text-dark: $tire-wheel;
+
+//Layout Colors
+$color-header-main: $color-main;
+$color-navbar-main: $black;
+
+//Button Colors
+$button-default: $color-accent;
+
