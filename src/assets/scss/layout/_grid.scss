@@ -3,36 +3,25 @@
 // **************************************
 @use '../utilities' as *;
 
-/*------FLEXBOX LAYOUT STYLES-----------*/
-
-//flex styles
-.flex__container {
-  @include mq('md') {
-    @include flex_me( $dir: column, $wrap: wrap );
-  }
-}
-
 /*------GRID LAYOUT STYLES-----------*/
 //Base Grid Layout for Whole site
 .grid__wrapper {
   height: 100vh;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 100px auto 65px;
+  grid-template-rows: 80px auto 48px;
   grid-template-areas:
       "header"
-      "main " 
+      "main" 
       "navigation";
 
   @include mq('md') {
-    grid-template-columns: 200px 1fr 1fr;
     grid-template-areas:
-      "navigation header header"
-      "navigation main main"
-      "navigation main main"
-      "navigation main main"
-      "navigation main main"
-      "navigation main main";
+      "header"
+      "main"; 
+    max-width: 731px;
+    max-height: 411px;
+    margin: auto;
   }
   
 }
@@ -42,22 +31,24 @@ header {
   grid-area: header;
 }
 
-nav {
-  grid-area: navigation;
-}
-
 main {
   grid-area: main;
+}
+
+nav {
+  grid-area: navigation;
 }
 
 //Main Content Grid Layout
 .main__grid--wrapper {
   display: grid;
-  grid-template-rows: 300px 300px;
-  grid-gap: 2rem;
-  padding: 1rem;
+  grid-template-rows: repeat(3, 164px); 
+  grid-template-columns: repeat(2, 164px);
+  justify-content: center;
   @include mq('md') {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 144px);
+     grid-template-rows: repeat(2, 144px); 
+     margin: 21px;
   }
 }
 

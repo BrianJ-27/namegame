@@ -34,3 +34,8 @@
 	color: c.$white;
 	cursor: pointer;
 }
+
+%font-props {
+	font-size: v.$font-size;
+	font-weight: v.$font-weight;
+}

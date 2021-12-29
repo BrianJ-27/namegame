@@ -1,0 +1,22 @@
+// **************************************
+// GRID & FLEX STYLES
+// **************************************
+@use '../utilities' as *;
+
+/*------FLEXBOX LAYOUT STYLES-----------*/
+
+//flex styles
+.flex__container {
+  @include flex_me($dir: column);
+  @include mq('md'){
+		flex-direction: row;
+	 }
+}
+
+.flex__container--column {
+    margin: 40px auto 21px auto;
+    @include flex_me();
+    @include mq('md'){
+        flex-direction: column;
+    }
+}

@@ -2,16 +2,21 @@
 // GLOBAL VARIABLES
 // **************************************
 
-//border radius
+// Border radius
 $soft-curve: 5px;
 $moderate-curve: 14px;
 $hard-curve: 25px;
 $full-circle: 50%;
 
-//Breakpoint Sizes
+// Breakpoint Sizes
 $mobile-view: 320px;
 $tablet-view: 768px;
 $desktop-view: 1024px;
+
+// Fonts
+$font-size: 20px;
+$font-weight: 500;
+
 
 // Media Query Breakpoint Map
 $breakpoints: (

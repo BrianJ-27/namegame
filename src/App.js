@@ -1,22 +1,12 @@
-import PortraitMenuScreen from '../src/pages/menu-screen/PortraitMenuScreen'
-import LandscapeMenuScreen from './pages/menu-screen/LandscapeMenuScreen'
-import { useMediaQuery } from 'react-responsive'
+import React from 'react'
+import GameScreen from './pages/game-screen/GameScreen'
 
-function App() {
 
-  const isMobile = useMediaQuery(
-    { query: '(max-width: 411px)' },
-    )
-
-  const isTabletorDesktop = useMediaQuery(
-    { query: '(min-width: 767px'}
-    )
-
+const App = () => {
   return (
-    <>
-    {isMobile && <PortraitMenuScreen/>}
-    {isTabletorDesktop && <LandscapeMenuScreen/>}
-    </>
+    <React.Fragment>
+      <GameScreen/>
+    </React.Fragment>
   );
 }
 

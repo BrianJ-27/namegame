@@ -51,8 +51,8 @@ $color-accent: $namegame-accent;
 $color-bg: $namegame-bg-color;
 $color-bg-dark: darken($color-bg, 20%);
 $color-bg-darkest: darken($color-bg, 40%);
-$color-bg-light: lighten($color-bg, 10%);
-$color-shadow: rgba($color-bg, 0.5);
+$color-bg-light: lighten($black, 10%);
+$color-shadow: rgba($color-bg, 0.24);
 
 
 //Link colors

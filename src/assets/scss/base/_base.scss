@@ -5,7 +5,7 @@
 @use '../utilities/fonts' as f;
 @use '../utilities/colors' as c;
 @use '../utilities/placeholders' as *;
-
+@use '../utilities/mixins' as *;
 
 *,
 *::before,
@@ -24,21 +24,37 @@ body,
 body {
 	font-family: f.$font-stack-main;
 	line-height: 1;
-	font-size: 20px;
-	background-color: c.$white;
+	@extend %font-props;
+	background-color: c.$color-bg;
 }
 
 header {
  	background-color: c.$color-header-main;
+	 box-shadow: 4px 0px 4px c.$color-shadow;
+}
+
+main{
+	background-color: c.$white;
+	 @include mq('md'){
+		 max-width: 731px;
+		flex-direction: row;
+	 }
 }
 
 nav {
 	background-color: c.$color-navbar-main;
+	@include mq('md'){
+		display: none;
+	}
 }
 
 p {
   @extend %text-modules;
   margin-bottom: 24px;
+}
+
+span {
+	font-size: 24px;
 }
 
 a {
@@ -47,6 +63,11 @@ a {
 
 img {
 	@extend %ctr-img;
+	width: 164px; height: 164px;
+	cursor: pointer;
+	@include mq('md'){
+		width: 144px; height: 144px;
+	}
 }
 
 button {
@@ -57,5 +78,9 @@ button {
 	padding: 1.032rem;
 }
 
+/*----Headings-----*/
+h2 {
+	@extend %font-props;
+}
 
 
