@@ -4,6 +4,7 @@
 @use '../utilities' as *;
 
 /*------GRID LAYOUT STYLES-----------*/
+
 //Base Grid Layout for Whole site
 .grid__wrapper {
   height: 100vh;
@@ -39,7 +40,7 @@ nav {
   grid-area: navigation;
 }
 
-//Main Content Grid Layout
+//Grid Layout for Employee Images
 .main__grid--wrapper {
   display: grid;
   grid-template-rows: repeat(3, 164px); 

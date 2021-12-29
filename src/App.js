@@ -1,12 +1,10 @@
-import React from 'react'
-import GameScreen from './pages/game-screen/GameScreen'
-
+import GameScreen from './components/game-screen/GameScreen'
 
 const App = () => {
   return (
-    <React.Fragment>
+    <>
       <GameScreen/>
-    </React.Fragment>
+    </>
   );
 }
 

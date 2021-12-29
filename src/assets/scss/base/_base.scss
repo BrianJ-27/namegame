@@ -41,6 +41,19 @@ main{
 	 }
 }
 
+section {
+	background-image: url('../../img//overlay-img-portrait.png');
+  	background-size: cover;
+  	background-position: top center;
+	@include mq('md'){
+		background: url('../../img//overlay-img-landscape.png');
+	}
+}
+
+section.close{
+	visibility: hidden;
+}
+
 nav {
 	background-color: c.$color-navbar-main;
 	@include mq('md'){
