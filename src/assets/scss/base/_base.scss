@@ -18,7 +18,7 @@
 html,
 body,
 #root {
-	height: 100%;
+	@extend %full-height;
 }
 
 body {
@@ -68,6 +68,9 @@ p {
 
 span {
 	font-size: 24px;
+	@include mq('md'){
+		padding-bottom: 5px;
+	}
 }
 
 a {
@@ -91,9 +94,17 @@ button {
 	padding: 1.032rem;
 }
 
+div.show{
+	display: block;
+}
+
 /*----Headings-----*/
 h2 {
 	@extend %font-props;
+	color: c.$color-text-light;
+	margin-left: 36px;
 }
+
+
 
 

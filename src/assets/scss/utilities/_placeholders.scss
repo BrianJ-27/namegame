@@ -5,6 +5,10 @@
 @use './colors' as c;
 @use './variables' as v;
 
+%full-height {
+	height: 100%;
+}
+
 %nav-link {
 	text-decoration: none;
 	color: c.$color-main;

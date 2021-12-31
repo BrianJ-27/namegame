@@ -1,9 +1,9 @@
-import GameScreen from './components/game-screen/GameScreen'
+import GameScreen from './containers/game-screen/GameScreen'
 
 const App = () => {
   return (
     <>
-      <GameScreen/>
+      <GameScreen />
     </>
   );
 }
