@@ -62,21 +62,16 @@ const GameScreen = () => {
 
     if (id === randomEmployee.id) {
       selectedHeadshot.isCorrect = true;
-
+      setTimeout(() => {
+        setShortenedEmployeeList(startNextRound);
+      }, 1500);
       console.log(selectedHeadshot);
     } else {
       selectedHeadshot.isCorrect = false;
+      console.log(selectedHeadshot);
     }
 
     setShortenedEmployeeList([...shortenedEmployeeList]);
-
-    // setIsCorrect({
-    //   isActive: isCorrect.isActive,
-    //   employeeArray: [
-    //     // Containing the updated employee object
-    //     // and the other 5 employees. Also, order should be maintained.
-    //   ]
-    // })
   };
 
   return (
