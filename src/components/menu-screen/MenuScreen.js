@@ -1,8 +1,8 @@
- import styled from "styled-components";
- 
- const MenuScreenWrapper = styled.section`
+import styled from "styled-components";
+
+const MenuScreenWrapper = styled.section`
   height: 100%;
-  max-width: 411px;
+  /* max-width: 411px; */
   margin: 0 auto;
 
   // styles to overlay on top of the game screen
@@ -17,7 +17,7 @@
   }
 `;
 
- const MenuFlex = styled.div`
+const MenuFlex = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -35,20 +35,18 @@
   }
 `;
 
-const MenuScreen = ({handleShowMenu}) => (
-     <MenuScreenWrapper>
-          <MenuFlex>
-            <p>Try Matching the Willow Tree Employee to their photo</p>
-            <button name="practice" onClick={handleShowMenu}>
-              Practice Mode
-            </button>
-            <button name="timed" onClick={handleShowMenu}>
-              Timed Mode
-            </button>
-          </MenuFlex>
-    </MenuScreenWrapper>
-)
+const MenuScreen = ({ handleGameStart }) => (
+  <MenuScreenWrapper>
+    <MenuFlex>
+      <p>Try Matching the Willow Tree Employee to their photo</p>
+      <button name="practice" onClick={() => handleGameStart(false)}>
+        Practice Mode
+      </button>
+      <button name="timed" onClick={() => handleGameStart(true)}>
+        Timed Mode
+      </button>
+    </MenuFlex>
+  </MenuScreenWrapper>
+);
 
 export default MenuScreen;
-    
-

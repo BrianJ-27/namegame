@@ -33,15 +33,23 @@ header {
 	 box-shadow: 4px 0px 4px c.$color-shadow;
 }
 
+main,
+figure,
+section {
+	position: relative;
+}
+
 main{
+	z-index: 0;
 	background-color: c.$white;
 	 @include mq('md'){
-		 max-width: 731px;
+		max-width: 731px;
 		flex-direction: row;
 	 }
 }
 
 section {
+	z-index: 1;
 	background-image: url('../../img//overlay-img-portrait.png');
   	background-size: cover;
   	background-position: top center;
@@ -58,6 +66,14 @@ nav {
 	background-color: c.$color-navbar-main;
 	@include mq('md'){
 		display: none;
+	}
+}
+
+figure {
+	z-index: -1;
+	margin: 0 41px;
+	@include mq('md'){
+		margin: 0 21px;
 	}
 }
 
@@ -78,6 +94,9 @@ a {
 }
 
 img {
+	&.overlay{
+		background-color: rgba(52, 199, 89, 0.2);
+	}
 	@extend %ctr-img;
 	width: 164px; height: 164px;
 	cursor: pointer;
@@ -96,6 +115,14 @@ button {
 
 div.show{
 	display: block;
+	&.overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(52, 199, 89, 0.2);
+	}
 }
 
 /*----Headings-----*/

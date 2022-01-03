@@ -1,6 +1,6 @@
-const HeadShot = ( { id, url, alt, handleGuess } ) => (
+const HeadShot = ({ id, url, alt, handleGuess }) => (
   <img
-    onClick={handleGuess}
+    onClick={() => handleGuess(id)}
     key={id}
     width="164px"
     height="164px"
