@@ -1,4 +1,4 @@
-const AppHeader = ({ showMenu, changeMode }) => {
+const AppHeader = ({ showMenu, isPracticeMode }) => {
   return (
     <div style={{ marginLeft: "20px" }}>
       <svg
@@ -16,7 +16,7 @@ const AppHeader = ({ showMenu, changeMode }) => {
           d="M16 7H3.8L9.4 1.4L8 0L0 8L8 16L9.4 14.6L3.8 9H16V7Z"
         />
       </svg>
-      <h2>{changeMode}</h2>
+      <h2>{isPracticeMode ? "Practice Mode" : "Timed Mode"}</h2>
     </div>
   );
 };

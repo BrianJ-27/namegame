@@ -39,10 +39,10 @@ const MenuScreen = ({ handleGameStart }) => (
   <MenuScreenWrapper>
     <MenuFlex>
       <p>Try Matching the Willow Tree Employee to their photo</p>
-      <button name="practice" onClick={() => handleGameStart(false)}>
+      <button name="practice" onClick={() => handleGameStart(true)}>
         Practice Mode
       </button>
-      <button name="timed" onClick={() => handleGameStart(true)}>
+      <button name="timed" onClick={() => handleGameStart(false)}>
         Timed Mode
       </button>
     </MenuFlex>

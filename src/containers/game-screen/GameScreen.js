@@ -9,17 +9,26 @@ import HeadShotContainer from "../headshot-container/HeadshotContainer";
 import Timer from "../../components/timer/Timer";
 
 const GameScreen = () => {
+  // **************************************
+  // GAME STATE VARIABLES
+  // **************************************
+
   const [showMenu, setShowMenu] = useState(true);
-  const [showTimer, setShowTimer] = useState(false);
-  const [changeMode, setChangeMode] = useState("Practice Mode");
   const [shortenedEmployeeList, setShortenedEmployeeList] = useState([]);
   const [randomEmployee, setRandomEmployee] = useState({});
-  // const [counter, setcounter] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isPracticeMode, setIsPracticeMode] = useState(null);
 
-  /* ------ Brings in my API employee data along with two other state properties  ------ */
+  // **************************************
+  // API HOOK
+  // **************************************
+
   const { data, isLoading, error } = useGetEmployees();
 
-  //
+  // **************************************
+  // GAME METHODS/ FUNCTIONS
+  // **************************************
+
   const startNextRound = useCallback(() => {
     randomizeArray(data);
     const updatedEmployeeList = data.splice(0, 6);
@@ -29,7 +38,6 @@ const GameScreen = () => {
         Math.floor(Math.random() * updatedEmployeeList.length)
       ]
     );
-    setShowTimer(false);
   }, [data, setShortenedEmployeeList]);
 
   useEffect(() => {
@@ -39,12 +47,9 @@ const GameScreen = () => {
     startNextRound();
   }, [data, startNextRound]);
 
-  const handleGameStart = (isTimedMode) => {
+  const handleGameStart = (isPracticeMode) => {
     setShowMenu(false);
-    if (isTimedMode) {
-      setShowTimer(true);
-    }
-    setChangeMode(isTimedMode ? "Timed Mode" : "Practice Mode");
+    setIsPracticeMode(isPracticeMode);
   };
 
   const handleHideMenu = () => {
@@ -52,12 +57,6 @@ const GameScreen = () => {
   };
 
   const handleGuess = (id) => {
-    // Created a variable to store the selected headshot
-    //  Create a new property of "showOverlay" on the object and set it true
-    // Compare the unique ID for a match & setIsCorrect appropriately
-    // Set a delay to start a new round
-    // Set a delay to show the game result (modal)
-
     let selectedHeadshot = shortenedEmployeeList.find(
       (employee) => employee.id === id
     );
@@ -65,23 +64,29 @@ const GameScreen = () => {
 
     if (id === randomEmployee.id) {
       selectedHeadshot.isCorrect = true;
+      setScore(score + 1);
       setTimeout(() => {
         startNextRound();
       }, 750);
       console.log(selectedHeadshot);
     } else {
       selectedHeadshot.isCorrect = false;
-      setTimeout(() => {
-        alert("Game Over Score is blah/ blah");
-        startNextRound();
-        setShowMenu(true);
-      }, 1000);
+      if (isPracticeMode) {
+        setTimeout(() => {
+          alert(`Game Over. Your Score is : ${score}`);
+          startNextRound();
+          setShowMenu(true);
+        }, 1000);
+      }
       console.log(selectedHeadshot);
     }
 
     setShortenedEmployeeList([...shortenedEmployeeList]);
   };
 
+  // **************************************
+  // RENDERING OF GAMESCREEN COMPONENT
+  // **************************************
   return (
     <div className="grid__wrapper">
       {showMenu && <MenuScreen handleGameStart={handleGameStart} />}
@@ -91,8 +96,11 @@ const GameScreen = () => {
       ) : (
         <>
           <header className="flex__container--header">
-            <AppHeader showMenu={handleHideMenu} changeMode={changeMode} />
-            {showTimer && <Timer />}
+            <AppHeader
+              showMenu={handleHideMenu}
+              isPracticeMode={isPracticeMode}
+            />
+            {!isPracticeMode && <Timer />}
           </header>
           <main className="flex__container">
             <NameContainer
