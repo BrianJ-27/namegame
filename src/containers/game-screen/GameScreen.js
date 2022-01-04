@@ -6,7 +6,7 @@ import AppHeader from "../../components/app-header/AppHeader";
 import AppNav from "../../components/app-nav/Navigation";
 import NameContainer from "../name-container/NameContainer";
 import HeadShotContainer from "../headshot-container/HeadshotContainer";
-import Timer from "../../components/timer/Timer";
+import Timer from "../timer/Timer";
 
 const GameScreen = () => {
   // **************************************
@@ -14,13 +14,13 @@ const GameScreen = () => {
   // **************************************
 
   const [showMenu, setShowMenu] = useState(true);
+  const [isPracticeMode, setIsPracticeMode] = useState(null);
   const [shortenedEmployeeList, setShortenedEmployeeList] = useState([]);
   const [randomEmployee, setRandomEmployee] = useState({});
   const [score, setScore] = useState(0);
-  const [isPracticeMode, setIsPracticeMode] = useState(null);
 
   // **************************************
-  // API HOOK
+  // API CUSTOM HOOK
   // **************************************
 
   const { data, isLoading, error } = useGetEmployees();
@@ -52,9 +52,7 @@ const GameScreen = () => {
     setIsPracticeMode(isPracticeMode);
   };
 
-  const handleHideMenu = () => {
-    setShowMenu(true);
-  };
+  const handleHideMenu = () => setShowMenu(true);
 
   const handleGuess = (id) => {
     let selectedHeadshot = shortenedEmployeeList.find(
@@ -72,16 +70,20 @@ const GameScreen = () => {
     } else {
       selectedHeadshot.isCorrect = false;
       if (isPracticeMode) {
-        setTimeout(() => {
-          alert(`Game Over. Your Score is : ${score}`);
-          startNextRound();
-          setShowMenu(true);
-        }, 1000);
+        handleGameOver();
       }
       console.log(selectedHeadshot);
     }
 
     setShortenedEmployeeList([...shortenedEmployeeList]);
+  };
+
+  const handleGameOver = () => {
+    setTimeout(() => {
+      alert(`Game Over. Your Score is : ${score}`);
+      startNextRound();
+      setShowMenu(true);
+    }, 1000);
   };
 
   // **************************************
