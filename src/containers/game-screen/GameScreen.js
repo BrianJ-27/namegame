@@ -14,10 +14,12 @@ const GameScreen = () => {
   const [changeMode, setChangeMode] = useState("Practice Mode");
   const [shortenedEmployeeList, setShortenedEmployeeList] = useState([]);
   const [randomEmployee, setRandomEmployee] = useState({});
+  // const [counter, setcounter] = useState(0);
 
   /* ------ Brings in my API employee data along with two other state properties  ------ */
   const { data, isLoading, error } = useGetEmployees();
 
+  //
   const startNextRound = useCallback(() => {
     randomizeArray(data);
     const updatedEmployeeList = data.splice(0, 6);
@@ -27,6 +29,7 @@ const GameScreen = () => {
         Math.floor(Math.random() * updatedEmployeeList.length)
       ]
     );
+    setShowTimer(false);
   }, [data, setShortenedEmployeeList]);
 
   useEffect(() => {
@@ -63,11 +66,16 @@ const GameScreen = () => {
     if (id === randomEmployee.id) {
       selectedHeadshot.isCorrect = true;
       setTimeout(() => {
-        setShortenedEmployeeList(startNextRound);
-      }, 1500);
+        startNextRound();
+      }, 750);
       console.log(selectedHeadshot);
     } else {
       selectedHeadshot.isCorrect = false;
+      setTimeout(() => {
+        alert("Game Over Score is blah/ blah");
+        startNextRound();
+        setShowMenu(true);
+      }, 1000);
       console.log(selectedHeadshot);
     }
 

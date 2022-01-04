@@ -11,14 +11,19 @@ const useGetEmployees = () => {
     axios
       .get("https://namegame.willowtreeapps.com/api/v1.0/profiles")
       .then((response) => {
-        setData(response.data);
+        const filteredData = response.data.filter(
+          (employee) =>
+            employee.headshot.id !== "no id configured" &&
+            employee.headshot.alt !== "no title configured"
+        );
+        setData(filteredData);
         setIsLoading(false);
       })
       .catch((err) => {
         // if the request fails, it will cache the error and set the error to be equal to the error state
         setError(err);
       });
-  }, []); // reason for dependency array, if the URL changes, we want to request the new data
+  }, []); // reason for dependency array, if the URL changes, we want to request the new data once
 
   return { data, isLoading, error };
 };
